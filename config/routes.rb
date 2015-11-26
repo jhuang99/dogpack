@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :dogs, :controllers => { registrations: 'registrations' }
+
   resources :posts
-  devise_for :dogs
   devise_scope :dog do
   authenticated :dog do
-    root 'homepage#index', as: :authenticated_root
+    root 'posts#index', as: :authenticated_root
   end
 
   unauthenticated do

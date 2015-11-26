@@ -24,13 +24,13 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(params[ :post]) do |post|
-      post.user = current_user
+    @post = Post.new(post_params) do |post|
+      post.dog = current_dog
     end
     if @post.save
-      redirect_to root_path
+      redirect_to authenticated_root_path
     else
-      redirect_to root_path, notice: @post.errors.full_messages.first
+      redirect_to authenticated_root_path, notice: @post.errors.full_messages.first
     end
   end
 
