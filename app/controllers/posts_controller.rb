@@ -3,6 +3,18 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
+  def like
+    @post = Post.find(params[:id])
+    @post.liked_by current_dog
+
+    # respond_to do |format|
+    #   format.html {redirect_to :back }
+    #   format.json { render json: { count: @post.liked_count } }
+    # end
+    redirect_to authenticated_root_path
+  end
+
+
   def index
     @posts = Post.all
   end

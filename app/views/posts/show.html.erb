@@ -7,8 +7,13 @@
 
 <p>
   <strong>Dog:</strong>
-  <%= @post.dog %>
+  <%= @post.dog.name %>
 </p>
+<p>
+  <strong>Likes:</strong>
+  <%= @post.get_likes.size %>
+</p>
+<%= link_to 'Like', like_path(:id => @post.id)  %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

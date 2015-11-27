@@ -1,3 +1,5 @@
 class Post < ActiveRecord::Base
-  belongs_to :dog
+	acts_as_votable
+ 	belongs_to :dog
+  
 end

@@ -3,14 +3,15 @@ Rails.application.routes.draw do
 
   resources :posts
   devise_scope :dog do
-  authenticated :dog do
-    root 'posts#index', as: :authenticated_root
-  end
+    authenticated :dog do
+      root 'posts#index', as: :authenticated_root
+    end
 
-  unauthenticated do
-    root 'devise/sessions#new', as: :unauthenticated_root
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
   end
-end
+  get '/posts/:id/like(.:format) ' => 'posts#like', as: :like
   # root to: 'homepage#frontpage'
 
   # The priority is based upon order of creation: first created -> highest priority.
