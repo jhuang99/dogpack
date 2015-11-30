@@ -11,6 +11,7 @@ class Comment < ActiveRecord::Base
   #acts_as_voteable
 
   # NOTE: Comments belong to a user
-  belongs_to :dog
   acts_as_votable
+  belongs_to :post
+  validates :comment, presence: true
 end

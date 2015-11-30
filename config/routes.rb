@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :dogs, :controllers => { registrations: 'registrations' }
 
-  resources :posts
+  resources :posts do 
+    resources :comments
+  end
   devise_scope :dog do
     authenticated :dog do
       root 'posts#index', as: :authenticated_root
@@ -11,7 +13,10 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+  resources :comments, :path_prefix => '/:post/:post_id'
   get '/posts/:id/like(.:format) ' => 'posts#like', as: :like
+  
+  # get '/posts/:id/comment(.:format) ' => 'posts#comment', as: :comment
   # root to: 'homepage#frontpage'
 
   # The priority is based upon order of creation: first created -> highest priority.

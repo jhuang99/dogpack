@@ -6,12 +6,11 @@ class PostsController < ApplicationController
   def like
     @post = Post.find(params[:id])
     @post.liked_by current_dog
+    redirect_to :back
+  end
 
-    # respond_to do |format|
-    #   format.html {redirect_to :back }
-    #   format.json { render json: { count: @post.liked_count } }
-    # end
-    redirect_to authenticated_root_path
+  def comment
+    @post = Post.find(params[:id])
   end
 
 

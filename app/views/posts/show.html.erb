@@ -13,7 +13,23 @@
   <strong>Likes:</strong>
   <%= @post.get_likes.size %>
 </p>
-<%= link_to 'Like', like_path(:id => @post.id)  %>
+<p>
+  <strong>Comments:</strong>
 
+
+  <% @post.comments.each do |comment| %>
+  <tr>
+        <td><%= comment.comment %></td>
+	        <p> Created by: 
+	        <td><%= Dog.find(comment.dog_id).name%></td>
+	        </p>
+        <% if current_dog == @post.dog %>
+          
+        <% end %>
+      </tr>
+   <% end %>
+</p>
+<%= link_to 'Like', like_path(:id => @post.id)  %> |
+<%= link_to 'New Comment', new_post_comment_path(@post) %> |
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

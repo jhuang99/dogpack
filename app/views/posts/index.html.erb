@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Content</th>
+      <th>Posts</th>
       <th>Dog</th>
       <th colspan="3"></th>
     </tr>
@@ -17,8 +17,10 @@
         <td><%= post.content %></td>
         <td><%= post.dog.name %></td>
         <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_dog == post.dog %>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

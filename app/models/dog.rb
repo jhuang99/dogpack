@@ -4,4 +4,6 @@ class Dog < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   acts_as_voter
+  has_many :posts
+  validates :email, uniqueness: true 
 end
