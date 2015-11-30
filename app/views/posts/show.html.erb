@@ -20,11 +20,12 @@
   <% @post.comments.each do |comment| %>
   <tr>
         <td><%= comment.comment %></td>
-	        <p> Created by: 
-	        <td><%= Dog.find(comment.dog_id).name%></td>
+	        <p> Written by: 
+	        <td><%= Dog.find(comment.dog_id).name%> on <%= comment.created_at %></td>
 	        </p>
-        <% if current_dog == @post.dog %>
-          
+        <% if current_dog == Dog.find(comment.dog_id) %>
+          <td><%= link_to 'Edit', edit_post_comment_path(comment.commentable_id, :id => params[:id]) %></td>
+          <td><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
    <% end %>

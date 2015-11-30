@@ -16,17 +16,23 @@ class CommentsController < ApplicationController
       comment.dog_id = current_dog.id
     end
     @comment.save
-    redirect_to authenticated_root_path
+    redirect_to post_path(params[:post_id])
   end
 
   def destroy
-    @comment = current_dog.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
     @comment_id = params[:id]
     @comment.destroy
+    redirect_to :back
+  end
+  def show
   end
 
   def index
     @comments = Comment.all
+  end
+
+  def edit
   end
 
   private
