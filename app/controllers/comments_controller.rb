@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
     @comment.commentable_type = "post"
+    @comment.post_id = params[:post_id]
 
   end
 
@@ -14,6 +15,7 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new do |comment|
       comment.comment = params[:comment][:comment]
       comment.dog_id = current_dog.id
+      comment.post_id = comment.commentable_id
     end
     @comment.save
     redirect_to post_path(params[:post_id])
@@ -33,6 +35,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
+  	@comment = Comment.find(params[:id])
   end
 
   private

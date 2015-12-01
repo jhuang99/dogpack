@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>Post:</strong>
   <%= @post.content %>
 </p>
 
 <p>
-  <strong>Dog:</strong>
+  <strong>Poster:</strong>
   <%= @post.dog.name %>
 </p>
 <p>
@@ -14,23 +14,26 @@
   <%= @post.get_likes.size %>
 </p>
 <p>
+  <%= link_to 'Like', like_path(:id => @post.id)  %> |
+<%= link_to 'New Comment', new_post_comment_path(@post) %> 
+  <br>
   <strong>Comments:</strong>
 
 
   <% @post.comments.each do |comment| %>
-  <tr>
-        <td><%= comment.comment %></td>
-	        <p> Written by: 
+  <tr> <div class = "box">
+        <p> <td><%= comment.comment %></td> </p>
+      </div>
+	        <p class = "tab"> Written by: 
 	        <td><%= Dog.find(comment.dog_id).name%> on <%= comment.created_at %></td>
 	        </p>
-        <% if current_dog == Dog.find(comment.dog_id) %>
-          <td><%= link_to 'Edit', edit_post_comment_path(comment.commentable_id, :id => params[:id]) %></td>
+          <% if current_dog == Dog.find(comment.dog_id) %>
+          <p class = "tab"> <td><%= link_to 'Edit Comment', edit_post_comment_path(:id => comment.id, :post_id => params[:id]) %></td>
           <td><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </p>
         <% end %>
       </tr>
    <% end %>
 </p>
-<%= link_to 'Like', like_path(:id => @post.id)  %> |
-<%= link_to 'New Comment', new_post_comment_path(@post) %> |
-<%= link_to 'Edit', edit_post_path(@post) %> |
+
 <%= link_to 'Back', posts_path %>

@@ -22,3 +22,25 @@ ul.hmenu {
 ul.hmenu li {
   display: inline;  
 }
+
+.blue {
+	color: blue;	
+
+}
+
+body {
+	background-color: #ffddcc;
+	padding-left: 150px;
+}
+
+.tab {
+	margin-left: 40px;
+}
+
+.box {
+	border: 2px solid black;
+	width: 200px;
+	height: 30px;
+	background-color: #ffffe5;
+	text-align: left;
+}

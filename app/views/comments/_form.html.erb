@@ -5,8 +5,10 @@
           placeholder: 'Write a comment' %>
      <%= f.hidden_field :commentable_id%>
      <%= f.hidden_field :commentable_type%>
+     <%= f.hidden_field :post_id%>
   </div>
   <%= f.submit :comment, class: 'btn btn-primary'%>
+  
 <% end %>
 
 
