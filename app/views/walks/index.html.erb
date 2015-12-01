@@ -17,12 +17,12 @@
   <tbody>
     <% @walks.each do |walk| %>
       <tr>
-        <td><%= Dog.find(walk.belongs_to).name %></td>
+        <td><%= Dog.find(walk.dog_id).name %></td>
         <td><%= walk.title %></td>
         <td><%= walk.date %></td>
         <td><%= walk.location %></td>
         <td><%= walk.description %></td>
-        <% if current_dog == Dog.find(walk.belongs_to) %>
+        <% if current_dog == Dog.find(walk.dog_id) %>
         <td><%= link_to 'Edit', edit_walk_path(walk) %></td>
         <td><%= link_to 'Delete', walk, method: :delete, data: { confirm: 'Are you sure you want to delete your walk?' } %></td>
         <% end %>

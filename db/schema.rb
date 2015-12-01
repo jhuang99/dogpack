@@ -74,7 +74,16 @@ ActiveRecord::Schema.define(version: 20151201073602) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
 
-# Could not dump table "walks" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "walks", force: :cascade do |t|
+    t.string   "title"
+    t.date     "date"
+    t.text     "description"
+    t.text     "location"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "dog_id"
+  end
+
+  add_index "walks", ["dog_id"], name: "index_walks_on_dog_id"
 
 end

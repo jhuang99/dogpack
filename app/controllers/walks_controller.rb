@@ -15,7 +15,7 @@ class WalksController < ApplicationController
   # GET /walks/new
   def new
     @walk = Walk.new
-    @walk.dog_id = current_dog
+    @walk.dog_id = current_dog.id
   end
 
   # GET /walks/1/edit
@@ -27,7 +27,7 @@ class WalksController < ApplicationController
   def create
     @walk = Walk.new(walk_params)
     
-    @walk.belongs_to = current_dog
+    @walk.dog_id = current_dog.id
     respond_to do |format|
       if @walk.save
         format.html { redirect_to walks_path, notice: 'walk was successfully saved.' }
