@@ -63,3 +63,9 @@ body {
 	background-color: #ffffe5;
 	text-align: left;
 }
+
+.header {
+	font-size: 80px;
+	text-align: center;
+	padding-top: 200px;
+}

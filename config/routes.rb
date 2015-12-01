@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   devise_scope :dog do
     authenticated :dog do
-      root 'posts#index', as: :authenticated_root
+      root 'homepage#frontpage', as: :authenticated_root
     end
 
     unauthenticated do
