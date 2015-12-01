@@ -13,24 +13,43 @@
  *= require_tree .
  *= require_self
  */
+
+
 ul.hmenu {
   list-style: none; 
   margin: 0 0 2em;
   padding: 0;
+  color: blue;	
 }
 
 ul.hmenu li {
   display: inline;  
 }
 
+
+ul.top-bar {
+	position: absolute;
+	top: 0;
+	right: 100px;
+	list-style: none; 
+	padding: 0;
+	color: white;
+	font-size: 150%;
+}
+a.button {
+  &:visited {
+    color: white !important;
+  }
+}
+
 .blue {
-	color: blue;	
+	color: red;	
 
 }
 
 body {
-	background-color: #ffddcc;
-	padding-left: 150px;
+	background-color: #99e600;
+	padding-left: 100px;
 }
 
 .tab {

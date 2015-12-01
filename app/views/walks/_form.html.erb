@@ -1,0 +1,34 @@
+<%= form_for(@walk) do |f| %>
+  <% if @walk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@walk.errors.count, "error") %> prohibited this walk from being saved:</h2>
+
+      <ul>
+      <% @walk.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, placeholder: 'Name your walk!'%>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date , placeholder: 'When was your walk?' %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_area :location, placeholder: 'Where was your walk?' %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, placeholder: 'How was your walk?'%>
+  </div>
+  <div class="actions">
+    <%= f.hidden_field :dog_id%>
+    <%= f.submit %>
+  </div>
+<% end %>

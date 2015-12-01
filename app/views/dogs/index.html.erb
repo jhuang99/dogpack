@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Dogs</h1>
+
+<table>
+
+
+  <tbody>
+    <% @dogs.each do |dog| %>
+      <tr>
+        <td><%= dog.name %></td>
+        <td><%= dog.age %></td>
+        <td><%= dog.breed %></td>
+        <td><%= dog.email %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

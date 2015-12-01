@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Walks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dog</th>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @walks.each do |walk| %>
+      <tr>
+        <td><%= Dog.find(walk.belongs_to).name %></td>
+        <td><%= walk.title %></td>
+        <td><%= walk.date %></td>
+        <td><%= walk.location %></td>
+        <td><%= walk.description %></td>
+        <% if current_dog == Dog.find(walk.belongs_to) %>
+        <td><%= link_to 'Edit', edit_walk_path(walk) %></td>
+        <td><%= link_to 'Delete', walk, method: :delete, data: { confirm: 'Are you sure you want to delete your walk?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Record a walk', new_walk_path %>

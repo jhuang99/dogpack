@@ -6,4 +6,5 @@ class Dog < ActiveRecord::Base
   acts_as_voter
   has_many :posts
   validates :email, uniqueness: true 
+  has_many :walks
 end

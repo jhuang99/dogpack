@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+%w(Roofus Buster Cloud Kiko).each do |name|
+  Dog.create name: name, email: name+"@dogpack.com", password: 'password', age: rand(1..20), breed: "labradoodle"
+end
+
+

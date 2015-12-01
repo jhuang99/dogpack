@@ -1,10 +1,11 @@
 <% if dog_signed_in? %>
-	<p>
-  	Welcome <%= current_dog.name  %>
-  </p>
-  <li>
+	<% temp = current_dog.name %>
+	<li>
   <%= link_to('Logout', destroy_dog_session_path, :method => :get) %>        
   </li>
+
+	<p> Welcome <%= temp  %></p>
+  
   
 <% else %>
   <li>

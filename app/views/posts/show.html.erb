@@ -14,7 +14,7 @@
   <%= @post.get_likes.size %>
 </p>
 <p>
-  <%= link_to 'Like', like_path(:id => @post.id)  %> |
+  <%= link_to  '&#x1f44d;'.html_safe, like_path(:id => @post.id)  %> |
 <%= link_to 'New Comment', new_post_comment_path(@post) %> 
   <br>
   <strong>Comments:</strong>

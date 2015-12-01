@@ -1,0 +1,13 @@
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name"><%= link_to 'Home', authenticated_root_path %></li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+  </ul>
+  <div class="top-bar-section">
+    <ul class="right">
+      <%= link_to 'Posts', posts_path %>
+	<%= link_to 'Walks', walks_path %>
+	<%= link_to 'Dogs', dogs_path %>
+    </ul>
+  </div>
+</nav>

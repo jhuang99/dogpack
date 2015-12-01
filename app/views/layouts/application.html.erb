@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dogpack</title>
+  <title>Dogpack &#128062;</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -18,5 +18,14 @@
   <%= render 'devise/menu/login_items' %>
   
 </ul>
+
+<ul class="top-bar">
+	<%= link_to 'Home', authenticated_root_path %>
+	<%= link_to 'Posts', posts_path %>
+	<%= link_to 'Walks', walks_path %>
+	<%= link_to 'Dogs', dogs_path %>
+</ul>
+
+
 <%= yield %>
 

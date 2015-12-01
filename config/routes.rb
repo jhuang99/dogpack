@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :walks
   devise_for :dogs, :controllers => { registrations: 'registrations' }
-
+  resources :dogs, only: [:index]
+  resources :dogs
   resources :posts do 
     resources :comments
   end

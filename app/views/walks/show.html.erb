@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @walk.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @walk.date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @walk.description %>
+</p>
+
+<%= link_to 'Edit', edit_walk_path(@walk) %> |
+<%= link_to 'Back', walks_path %>
