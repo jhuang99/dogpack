@@ -1,28 +1,33 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Title: DogPack
+Team Members: Jiana Huang, Liyang Li, Winn Cui
+Demo Link: https://sheltered-thicket-9713.herokuapp.com/
 
-Things you may want to cover:
+Idea: A social network site made especially for dogs where dogs can write posts as well as comment and like them. Users can also record walks that they have taken and share with other users on the site. 
 
-* Ruby version
+Models and Description:
+Dog
+•	has name, email, and many posts and walks
+Post
+•	has content and belongs to a dog
+•	Can be liked
+Comment
+•	has text and belongs to a Post
+Walk
+•	has title, location, date, and text. 
+•	Belongs to a dog
 
-* System dependencies
+Features:
+•	Dogs can log in
+•	Dogs can comment on posts
+•	Dogs can like posts
+•	Dogs can record walks
+•	Dogs can create/edit/ delete posts
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Division of Labor:
+•	Jiana: Fixed up routes, created dog and posts models/controllers
+•	Liyang: Created Walk controller/model and homepage controller
+•	Winn: Figured out likes and created comments model/controller
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
