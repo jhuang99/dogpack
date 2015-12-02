@@ -39,7 +39,7 @@ class PostsController < ApplicationController
       post.dog = current_dog
     end
     if @post.save
-      redirect_to authenticated_root_path
+      redirect_to posts_path
     else
       redirect_to authenticated_root_path, notice: @post.errors.full_messages.first
     end
